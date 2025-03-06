@@ -38,7 +38,8 @@ struct MainTabView: View {
                         .tag(2)
                 }
                 .onChange(of: viewModel.readingGoal.completedBooks) { oldValue, newValue in
-                    if newValue == viewModel.readingGoal.targetBooks {
+                    if newValue >= viewModel.readingGoal.targetBooks && 
+                       oldValue < viewModel.readingGoal.targetBooks {
                         showingGoalCompletion = true
                     }
                 }
